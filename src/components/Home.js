@@ -19,7 +19,9 @@ class Home extends Component{
         })
         .then(response => response.json())
         .then(json => {
-                console.log(json);
+                this.setState({
+                    artists: json
+                })
             })
     }
 
@@ -27,7 +29,7 @@ class Home extends Component{
         return (
             <div>
                 <Banner/>
-                <ArtistList/>
+                <ArtistList allArtists={this.state.artists}/>
             </div>
         );
     }
